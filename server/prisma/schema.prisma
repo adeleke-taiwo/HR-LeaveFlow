@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  employee
+  manager
+  admin
+}
+
+enum LeaveStatus {
+  pending
+  approved
+  rejected
+  cancelled
+  pending_hr
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  firstName    String   @map("first_name")
+  lastName     String   @map("last_name")
+  role         Role     @default(employee)
+  isActive     Boolean  @default(true) @map("is_active")
+  departmentId String?  @map("department_id")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  department           Department?    @relation(fields: [departmentId], references: [id])
+  leaveRequests        Leave[]        @relation("LeaveRequester")
+  reviewedLeaves       Leave[]        @relation("LeaveReviewer")
+  managerReviewedLeaves Leave[]       @relation("ManagerReviewer")
+  hrReviewedLeaves     Leave[]        @relation("HRReviewer")
+  leaveBalances        LeaveBalance[]
+
+  @@map("users")
+}
+
+model Department {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  users User[]
+
+  @@map("departments")
+}
+
+model LeaveType {
+  id                 String   @id @default(uuid())
+  name               String   @unique
+  description        String?
+  defaultDaysPerYear Int      @map("default_days_per_year")
+  requiresApproval   Boolean  @default(true) @map("requires_approval")
+  isActive           Boolean  @default(true) @map("is_active")
+  createdAt          DateTime @default(now()) @map("created_at")
+
+  leaves            Leave[]
+  leaveBalances     LeaveBalance[]
+  approvalWorkflows ApprovalWorkflow[]
+
+  @@map("leave_types")
+}
+
+model Leave {
+  id                   String      @id @default(uuid())
+  requesterId          String      @map("requester_id")
+  leaveTypeId          String      @map("leave_type_id")
+  startDate            DateTime    @map("start_date") @db.Date
+  endDate              DateTime    @map("end_date") @db.Date
+  totalDays            Int         @map("total_days")
+  reason               String
+  status               LeaveStatus @default(pending)
+  reviewerId           String?     @map("reviewer_id")
+  reviewComment        String?     @map("review_comment")
+  reviewedAt           DateTime?   @map("reviewed_at")
+  managerReviewerId    String?     @map("manager_reviewer_id")
+  managerReviewedAt    DateTime?   @map("manager_reviewed_at")
+  managerComment       String?     @map("manager_comment")
+  hrReviewerId         String?     @map("hr_reviewer_id")
+  hrReviewedAt         DateTime?   @map("hr_reviewed_at")
+  hrComment            String?     @map("hr_comment")
+  currentApprovalStep  String      @default("manager") @map("current_approval_step")
+  createdAt            DateTime    @default(now()) @map("created_at")
+  updatedAt            DateTime    @updatedAt @map("updated_at")
+
+  requester       User      @relation("LeaveRequester", fields: [requesterId], references: [id])
+  reviewer        User?     @relation("LeaveReviewer", fields: [reviewerId], references: [id])
+  managerReviewer User?     @relation("ManagerReviewer", fields: [managerReviewerId], references: [id])
+  hrReviewer      User?     @relation("HRReviewer", fields: [hrReviewerId], references: [id])
+  leaveType       LeaveType @relation(fields: [leaveTypeId], references: [id])
+
+  @@index([requesterId])
+  @@index([status])
+  @@index([startDate, endDate])
+  @@index([requesterId, status])
+  @@index([leaveTypeId])
+  @@map("leaves")
+}
+
+model LeaveBalance {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  leaveTypeId String   @map("leave_type_id")
+  year        Int
+  allocated   Int      @default(0)
+  used        Int      @default(0)
+  pending     Int      @default(0)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user      User      @relation(fields: [userId], references: [id])
+  leaveType LeaveType @relation(fields: [leaveTypeId], references: [id])
+
+  @@unique([userId, leaveTypeId, year])
+  @@index([userId, year])
+  @@map("leave_balances")
+}
+
+model ApprovalWorkflow {
+  id           String    @id @default(uuid())
+  leaveTypeId  String    @unique @map("leave_type_id")
+  requiresHR   Boolean   @default(false) @map("requires_hr")
+  minDaysForHR Int?      @map("min_days_for_hr")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  leaveType LeaveType @relation(fields: [leaveTypeId], references: [id], onDelete: Cascade)
+
+  @@map("approval_workflows")
+}
