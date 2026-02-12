@@ -1,0 +1,65 @@
+.upcoming-leaves {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5rem;
+}
+
+.upcoming-leaves h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.upcoming-leaves-loading,
+.upcoming-leaves .no-data {
+  text-align: center;
+  padding: 2rem;
+  color: #9ca3af;
+}
+
+.upcoming-leaves-table {
+  overflow-x: auto;
+}
+
+.upcoming-leaves table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.upcoming-leaves th {
+  text-align: left;
+  padding: 0.75rem;
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.upcoming-leaves td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.upcoming-leaves tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+@media (max-width: 768px) {
+  .upcoming-leaves-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .upcoming-leaves th,
+  .upcoming-leaves td {
+    padding: 0.5rem;
+    font-size: 0.8125rem;
+  }
+}
