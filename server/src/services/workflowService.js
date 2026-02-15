@@ -1,6 +1,6 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-const ApiError = require('../utils/apiError');
+const ApiError = require('../utils/ApiError');
 
 class WorkflowService {
   /**

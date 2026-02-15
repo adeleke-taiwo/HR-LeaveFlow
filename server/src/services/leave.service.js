@@ -1,5 +1,5 @@
 const prisma = require('../config/database');
-const ApiError = require('../utils/apiError');
+const ApiError = require('../utils/ApiError');
 const { calculateLeaveDays } = require('../utils/dateUtils');
 const { LEAVE_STATUS, ROLES } = require('../utils/constants');
 const workflowService = require('./workflowService');

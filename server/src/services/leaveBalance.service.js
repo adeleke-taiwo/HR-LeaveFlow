@@ -1,5 +1,5 @@
 const prisma = require('../config/database');
-const ApiError = require('../utils/apiError');
+const ApiError = require('../utils/ApiError');
 
 async function getMyBalances(userId) {
   const currentYear = new Date().getFullYear();

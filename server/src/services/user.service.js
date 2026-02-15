@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const prisma = require('../config/database');
-const ApiError = require('../utils/apiError');
+const ApiError = require('../utils/ApiError');
 const { createDefaultLeaveBalances } = require('../utils/leaveBalanceHelper');
 
 function sanitizeUser(user) {

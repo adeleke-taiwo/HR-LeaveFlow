@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const prisma = require('../config/database');
 const env = require('../config/env');
-const ApiError = require('../utils/apiError');
+const ApiError = require('../utils/ApiError');
 const { createDefaultLeaveBalances } = require('../utils/leaveBalanceHelper');
 
 function generateAccessToken(user) {
