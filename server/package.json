@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "build": "npx prisma generate",
+    "build": "npx prisma generate && npx prisma migrate deploy && node prisma/seed.js",
     "dev": "nodemon src/server.js",
     "db:migrate": "npx prisma migrate dev",
     "db:seed": "node prisma/seed.js",
