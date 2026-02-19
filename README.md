@@ -4,9 +4,9 @@
 
 Built to solve a real HR operations problem: replacing spreadsheet-based leave tracking with an automated system that enforces approval chains, prevents scheduling conflicts, and gives managers instant visibility into team availability.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_App-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://adeleke-taiwo-dev.github.io/HR-LeaveFlow/)
-[![Backend API](https://img.shields.io/badge/API-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://hr-leaveflow.onrender.com/api/v1)
-[![GitHub](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/adeleke-taiwo-dev/HR-LeaveFlow)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_App-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://adeleke-taiwo.github.io/HR-LeaveFlow/)
+[![Backend API](https://img.shields.io/badge/API-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://hr-leaveflow-ca86.onrender.com/api/v1)
+[![GitHub](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/adeleke-taiwo/HR-LeaveFlow)
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express_5-000000?style=flat-square&logo=express&logoColor=white)
@@ -15,7 +15,7 @@ Built to solve a real HR operations problem: replacing spreadsheet-based leave t
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens)
 
-> **Note:** The backend runs on Render's free tier and may take ~30 seconds to wake up on first request. Demo accounts are available on the login page with click-to-fill.
+> **[Try it live](https://adeleke-taiwo.github.io/HR-LeaveFlow/)** — demo accounts with click-to-fill are available on the login page. The backend runs on Render's free tier and may take ~30 seconds to wake up on first request.
 
 ---
 
@@ -229,7 +229,7 @@ Engineering decisions and challenges I navigated while building this:
 
 ```bash
 # Clone
-git clone https://github.com/adeleke-taiwo-dev/HR-LeaveFlow.git
+git clone https://github.com/adeleke-taiwo/HR-LeaveFlow.git
 cd HR-LeaveFlow
 
 # Backend setup
@@ -266,7 +266,7 @@ I'm a full-stack developer who builds clean, production-ready applications with 
 
 **Looking for opportunities** to contribute to impactful products with a collaborative team.
 
-- GitHub: [@adeleke-taiwo-dev](https://github.com/adeleke-taiwo-dev)
+- GitHub: [@adeleke-taiwo](https://github.com/adeleke-taiwo)
 
 ---
 
