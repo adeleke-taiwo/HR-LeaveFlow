@@ -4,7 +4,7 @@
 
 Built to solve a real HR operations problem: replacing spreadsheet-based leave tracking with an automated system that enforces approval chains, prevents scheduling conflicts, and gives managers instant visibility into team availability.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_App-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://adeleke-taiwo.github.io/HR-LeaveFlow/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_App-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://hr-leave-flow.vercel.app/)
 [![Backend API](https://img.shields.io/badge/API-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://your-vercel-app.vercel.app/api/v1)
 [![GitHub](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/adeleke-taiwo/HR-LeaveFlow)
 
