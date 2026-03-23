@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "installCommand": "cd server && npm install && cd ../client && npm install",
+  "buildCommand": "cd server && npx prisma generate && npx prisma migrate deploy && node prisma/seed.js && cd ../client && npm run build",
+  "outputDirectory": "client/dist",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "server/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/v1/:path*", "destination": "/api" },
+    { "source": "/health", "destination": "/api" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
+}

@@ -9,7 +9,7 @@ const routes = require('./routes');
 
 const app = express();
 
-// Trust proxy (needed for secure cookies and rate limiting behind Render's proxy)
+// Trust proxy (needed for secure cookies and rate limiting behind Vercel's proxy)
 app.set('trust proxy', 1);
 
 // Security headers
