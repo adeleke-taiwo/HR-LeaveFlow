@@ -15,7 +15,7 @@ Built to solve a real HR operations problem: replacing spreadsheet-based leave t
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=flat-square&logo=JSON%20web%20tokens)
 
-> **[Try it live](https://adeleke-taiwo.github.io/HR-LeaveFlow/)** — demo accounts with click-to-fill are available on the login page. The backend runs on Render's free tier and may take ~30 seconds to wake up on first request.
+> **[Try it live](hr-leave-flow.vercel.app)** — demo accounts with click-to-fill are available on the login page. The backend runs on Vercel's free tier and may take ~30 seconds to wake up on first request.
 
 ---
 
